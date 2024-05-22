@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block titile%}
+<title>About</title>
+{%endblock%}
+
+{% block content%}
+<div class = "about">
+<h1>About</h1>
+    <p>
+        This is Alexander Stepannikov's website created specially for <a href="https://www.hse.ru/edu/courses/341463492" target = "_blank">'Web-app development' minor</a>.
+        There you can observe monkeys, discover how to solve coding problems and learn something about Alexander Stepannikov.
+    </p>
+    <a href = "{%url 'me'%}">
+        Who is Alexander Stepannikov?
+    </a>
+</div>
+{%endblock%}

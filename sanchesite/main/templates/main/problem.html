@@ -1,0 +1,111 @@
+{% extends 'main/layout.html' %}
+
+{% block titile%}
+Algo Problem
+{%endblock%}
+
+{% block content%}
+<div class="features">
+    <h3>Условие:</h3>
+    <i>Имеются две ёмкости: кубическая с ребром A, цилиндрическая с высотой H и радиусом основания R. Определить, поместится ли жидкость объёма M в первую ёмкость, во вторую, в обе.</i>
+    <h4>Решение:</h4>
+    <div class = 'solution'>
+        <pre>
+        <p>
+        A = int(input())
+        H = int(input())
+        R = int(input())
+        M = int(input())
+
+        v_cube = A**3
+        v_cyl = 3.14 * H * (R**2)
+        if M <= v_cube and M <= v_cyl:
+        print('Поместится в обе')
+        else: 
+            if M <= v_cube:
+                print('Поместится в куб')
+        elif M <= v_cyl:
+            print('Поместится в цилиндр')
+        else:
+            print('Не поместится никуда')
+        </p>
+    </pre>
+    </div>
+</div>
+<style>
+    #buttonContainer {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #message {
+        display: none;
+        background: green;
+        border: 3px solid black;
+        border-radius: 6px;
+    }
+
+    #button_dbl {
+        display: none;
+    }
+
+    #message_2 {
+        display: none;
+        background: green;
+        border: 3px solid black;
+        border-radius: 7px;
+    }
+</style>
+<script>
+    function hideButton() {
+        var button = document.getElementById("button_check");
+        var message = document.getElementById("message");
+        var button_2 = document.getElementById("button_dbl")
+
+        if (button.style.display === 'none') {
+                button.style.display = 'inline-block';
+                message.style.display = 'none';
+                button_2.style.display = 'none';
+            } else {
+                button.style.display = 'none';
+                message.style.display = 'block';
+                button_2.style.display = 'inline-block';
+            }
+    }
+    function toggleButton() {
+        var button_2 = document.getElementById("button_dbl")
+        var message_2 = document.getElementById("message_2")
+        var message = document.getElementById("message");
+
+        if (button_2.style.display === 'inline-block') {
+                button_2.style.display = 'none'
+                message_2.style.display = 'block'
+                message.style.display = "none"
+            } else {
+                button_2.style.display = 'inline-block'
+                message_2.style.display = 'none'
+            }
+    }
+
+</script>
+</head>
+<body>
+<div id="buttonContainer">
+    <button class = "btn btn-warning" id="button_check" onclick="hideButton()">Проверить решение</button>
+    <p id="message">Верно</p>
+    <button class = "btn btn-danger" id = "button_dbl" onclick="toggleButton()">Точно?</button>
+    <p id="message_2">Точно верно</p>
+</div>
+
+<style>
+    .solution {
+        display: flex;
+        text-align: left;
+        background: wheat;
+        color: black;
+        border: 3px solid #fff;
+        border-radius: 20px;
+    }
+</style>
+
+{%endblock%}
